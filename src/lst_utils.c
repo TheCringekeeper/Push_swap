@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 11:33:34 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 12:52:58 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 14:38:03 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ int	ft_min_index(t_data *data)
 	return (index);
 }
 
-int	ft_max_index(t_data *data)
+int	max_index_in_a(t_data *data)
 {
 	int	max;
 	int	index;
 	int	i;
 
-	i = 0;
+	i = data->index_a;
 	index = 0;
 	max = data->stack[i];
 	while (++i < data->stack_size)
@@ -76,7 +76,7 @@ int	ft_max_index(t_data *data)
 		if (max < data->stack[i])
 		{
 			max = data->stack[i];
-			index = i;
+			index = i - data->index_a;
 		}
 	}
 	return (index);
