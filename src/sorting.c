@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 20:26:16 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 16:55:09 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:07:59 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,28 @@ void	sorting_izi(t_data *data)
 		sorting_3(data);
 }
 
-void	sorting_krab(t_data *data)
-{
-	if (data->stack_size == 4)
-	{
-		ft_pb(data);
-		sorting_3(data);
-		ft_pa(data);
-		if (data->stack[0] == ft_max(data))
-			ft_ra(data);
-	}
-	else if (data->stack_size == 5)
-	{
-		ft_pb(data);
-		ft_pb(data);
-		sorting_3(data);
-		ft_pa(data);
-		if (data->stack[data->index_a] > data->stack[data->stack_size - 1])
-			ft_ra(data);
-		ft_pa(data);
-		if (data->stack[data->index_a] > data->stack[data->stack_size - 1])
-			ft_ra(data);
-	}
-}
+//peredelat na found place in a potom move to a
+
+// void	sorting_krab(t_data *data)
+// {
+// 	if (data->stack_size == 4)
+// 	{
+// 		ft_pb(data);
+// 		sorting_3(data);
+// 		ft_pa(data);
+// 		if (data->stack[0] == ft_max(data))
+// 			ft_ra(data);
+// 	}
+// 	else if (data->stack_size == 5)
+// 	{
+// 		ft_pb(data);
+// 		ft_pb(data);
+// 		sorting_3(data);
+// 		ft_pa(data);
+// 		if (data->stack[data->index_a] > data->stack[data->stack_size - 1])
+// 			ft_ra(data);
+// 		ft_pa(data);
+// 		if (data->stack[data->index_a] > data->stack[data->stack_size - 1])
+// 			ft_ra(data);
+// 	}
+// }

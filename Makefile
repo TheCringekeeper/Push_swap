@@ -8,7 +8,7 @@ RMFLAG	= -rf
 
 SMAKE	= make --no-print-directory
 
-SRC		= src/error.c src/main.c src/lst_utils.c src/sorting.c src/parsing.c src/ops.c src/ops_rr.c src/ops_rrr.c src/utils.c src/free.c
+SRC		= src/error.c src/main.c src/lst_utils.c src/sorting.c src/parsing.c src/rotations.c src/ops.c src/ops_rr.c src/ops_rrr.c src/utils.c src/free.c
 OBJ		= $(SRC:c=o)
 
 BSRC	= bonus_src/

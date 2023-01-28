@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 17:07:38 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:06:22 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ static void	choosing_approach(t_data *data)
 {
 	if (data->stack_size > 0 && data->stack_size < 4)
 		sorting_izi(data);
-	else if (data->stack_size > 3 && data->stack_size < 6)
-		sorting_krab(data);
-	// else if (data.stack_size == 100)
-	// 	sorting_sotka(&data);
-	// else if (data.stack_size == 500)
-	// 	sorting_pyatihat(&data);
+	// else if (data->stack_size > 3 && data->stack_size < 6)
+	// 	sorting_krab(data);
 	// nado sozdat odin sorting dlya vseh variantov po factu
 }
 

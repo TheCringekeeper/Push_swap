@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:27:54 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 17:06:40 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:59:51 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	sorting_krab(t_data *data);
 /* lst_utils */
 int		ft_max(t_data *data);
 int		max_index_in_a(t_data *data);
+
+/* rotation type */
+int		rotations_a(t_data *data, int i_needle);
+int		rotations_b(t_data *data, int i_needle);
 
 /* ops */
 void	ft_pa(t_data *data);
