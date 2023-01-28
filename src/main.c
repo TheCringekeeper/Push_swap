@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/27 21:30:34 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 13:31:40 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,19 @@ int	*get_stack(int stack_size, char *argv[])
 	return (stack);
 }
 
-// static void	choosing_approach(t_data data)
-// {
-// 	pre_sorting(data.stack, data.stack_size);
-// 	if (data.stack_size == 3)
-// 		sorting_troitsa(&data);
-// 	else if (data.stack_size == 5)
-// 		sorting_krab(&data);
-// 	else if (data.stack_size == 100)
-// 		sorting_sotka(&data);
-// 	else if (data.stack_size == 500)
-// 		sorting_pyatihat(&data);
-// }
+static void	choosing_approach(t_data *data)
+{
+	if (data->stack_size > 0 && data->stack_size < 4)
+		sorting_3(data);
+	// else if (data.stack_size == 5)
+	// 	sorting_krab(&data);
+	// else if (data.stack_size == 100)
+	// 	sorting_sotka(&data);
+	// else if (data.stack_size == 500)
+	// 	sorting_pyatihat(&data);
+	if (is_sorted(data))
+		printf("\033[0;34msorted\n\033[0m");
+}
 
 int	main(int argc, char *argv[])
 {
@@ -59,7 +60,9 @@ int	main(int argc, char *argv[])
 	if (!data.stack)
 		error();
 	ft_printf("\033[0;34mstack_OK\n\033[0m");
-	data.index_a = data.stack[0];
-	// choosing_approach(&data);
+	data.index_a = 0;
+	if (is_sorted(&data))
+		return (printf("\033[0;34minitially sorted\n\033[0m"), 0);
+	choosing_approach(&data);
 	return (0);
 }

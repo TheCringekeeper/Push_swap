@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 12:53:42 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/27 21:00:37 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 12:18:34 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,47 @@ void	ft_pb(t_data *data)
 	{
 		data->index_a++;
 		write(1, "pb\n", 3);
+	}
+}
+
+void	ft_sa(t_data *data)
+{
+	int	swap;
+
+	if ((data->stack_size - data->index_a) > 1)
+	{
+		swap = data->stack[data->index_a];
+		data->stack[data->index_a] = data->stack[data->index_a + 1];
+		data->stack[data->index_a + 1] = swap;
+		write(1, "sa\n", 3);
+	}
+}
+
+void	ft_sb(t_data *data)
+{
+	int	swap;
+
+	if (data->index_a > 1)
+	{
+		swap = data->stack[data->index_a - 1];
+		data->stack[data->index_a - 1] = data->stack[data->index_a - 2];
+		data->stack[data->index_a - 2] = swap;
+		write(1, "sa\n", 3);
+	}
+}
+
+void	ft_ss(t_data *data)
+{
+	int	swap;
+
+	if (data->index_a > 1 && (data->stack_size - data->index_a) > 1)
+	{
+		swap = data->stack[data->index_a - 1];
+		data->stack[data->index_a - 1] = data->stack[data->index_a - 2];
+		data->stack[data->index_a - 2] = swap;
+		swap = data->stack[data->index_a];
+		data->stack[data->index_a] = data->stack[data->index_a + 1];
+		data->stack[data->index_a + 1] = swap;
+		write(1, "ss\n", 3);
 	}
 }

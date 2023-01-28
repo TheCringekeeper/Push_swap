@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:27:54 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/27 20:49:37 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 13:15:58 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,30 @@ int		parsing_error(char *argv[]);
 int		has_doubles(int *stack, int stack_len);
 
 /* sorting */
-void	sorting_troitsa(t_data *data);
+int		is_sorted(t_data *data);
+void	sorting_3(t_data *data);
 
 /* error */
 void	error(void);
 
+/* lst_utils */
+int		ft_min(t_data *data);
+int		ft_max(t_data *data);
+int		ft_min_index(t_data *data);
+int		ft_max_index(t_data *data);
+
 /* ops */
 void	ft_pb(t_data *data);
 void	ft_pb(t_data *data);
+void	ft_sa(t_data *data);
+void	ft_sb(t_data *data);
+void	ft_ss(t_data *data);
+
+/* ops_rr */
+void	ft_ra(t_data *data);
+void	ft_rb(t_data *data);
+
+/* ops_rrr */
+void	ft_rra(t_data *data);
 
 #endif
