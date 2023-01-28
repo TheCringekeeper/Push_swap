@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 20:26:16 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 14:38:09 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 16:55:09 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,7 @@ void	sorting_izi(t_data *data)
 		return ;
 	}
 	else if (data->stack_size == 3)
-	{
 		sorting_3(data);
-	}
 }
 
 void	sorting_krab(t_data *data)

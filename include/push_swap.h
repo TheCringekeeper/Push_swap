@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:27:54 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 14:44:52 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:06:40 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ void	sorting_izi(t_data *data);
 void	sorting_krab(t_data *data);
 
 /* lst_utils */
-int		ft_min(t_data *data);
 int		ft_max(t_data *data);
-int		ft_min_index(t_data *data);
 int		max_index_in_a(t_data *data);
 
 /* ops */

@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:26:25 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 13:10:03 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 16:54:00 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_ra(t_data *data)
 	if (data->stack_size - data->index_a > 0)
 	{
 		tmp = data->stack[data->index_a];
-		while (i < (data->stack_size - data->index_a))
+		while (i <= (data->stack_size - data->index_a))
 		{
 			data->stack[i - 1] = data->stack[i];
 			i++;

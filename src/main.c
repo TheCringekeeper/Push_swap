@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 15:25:31 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/28 17:07:38 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ static void	choosing_approach(t_data *data)
 	// 	sorting_sotka(&data);
 	// else if (data.stack_size == 500)
 	// 	sorting_pyatihat(&data);
-	if (is_sorted(data))
-		ft_printf("\033[0;34msorted\n\033[0m");
+	// nado sozdat odin sorting dlya vseh variantov po factu
 }
 
 int	main(int argc, char *argv[])
@@ -54,14 +53,14 @@ int	main(int argc, char *argv[])
 	data.stack_size = argc - 1;
 	if (parsing_error(argv))
 		error();
-	ft_printf("\033[0;34mparsing OK\n\033[0m");
+	// ft_printf("\033[0;34mparsing OK\n\033[0m");
 	data.stack = get_stack(data.stack_size, argv);
 	if (!data.stack)
 		error();
-	ft_printf("\033[0;34mstack_OK\n\033[0m");
+	// ft_printf("\033[0;34mstack_OK\n\033[0m");
 	data.index_a = 0;
 	if (is_sorted(&data))
-		return (0);
+		return (free_stack(&data), 0);
 	choosing_approach(&data);
 	free_stack(&data);
 	return (0);
