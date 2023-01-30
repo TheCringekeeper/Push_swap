@@ -6,25 +6,11 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 17:00:57 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/06 16:49:10 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:35:35 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_strcpy(char *dest, char *src)
-{
-	size_t	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return ;
-}
 
 void	ft_clean_stash(char *stash)
 {

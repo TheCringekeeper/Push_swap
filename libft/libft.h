@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:04:27 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/06 16:49:49 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:33:50 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ size_t	ft_puthexmin_fd(int nb, int fd);
 size_t	ft_puthexmaj_fd(int nb, int fd);
 
 char	*get_next_line(int fd);
-void	ft_strcpy(char *dest, char *src);
 void	ft_clean_stash(char *stash);
 
 #endif

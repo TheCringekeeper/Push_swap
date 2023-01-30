@@ -6,11 +6,25 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 18:06:22 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:50:14 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	is_sorted(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->stack_size - 1)
+	{
+		if (data->stack[i] > data->stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	*get_stack(int stack_size, char *argv[])
 {
@@ -33,27 +47,37 @@ int	*get_stack(int stack_size, char *argv[])
 
 static void	choosing_approach(t_data *data)
 {
-	if (data->stack_size > 0 && data->stack_size < 4)
+	if (data->stack_size > 1 && data->stack_size < 4)
 		sorting_izi(data);
-	// else if (data->stack_size > 3 && data->stack_size < 6)
-	// 	sorting_krab(data);
-	// nado sozdat odin sorting dlya vseh variantov po factu
+	else if (data->stack_size == 4)
+		sorting_4(data);
+	else if (data->stack_size == 5)
+		sorting_5(data);
+	// else
+	// 	sorting_everything(data);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_data	data;
+	char	*tmp;
 
 	if (argc < 2)
 		return (1);
+	if (argc == 2)
+	{
+		tmp = ft_strjoin("./push_swap ", argv[1]);
+		argv = ft_split(tmp, ' ');
+		argc = 0;
+		while (argv && argv[argc])
+			argc++;
+	}
 	data.stack_size = argc - 1;
 	if (parsing_error(argv))
 		error();
-	// ft_printf("\033[0;34mparsing OK\n\033[0m");
 	data.stack = get_stack(data.stack_size, argv);
 	if (!data.stack)
 		error();
-	// ft_printf("\033[0;34mstack_OK\n\033[0m");
 	data.index_a = 0;
 	if (is_sorted(&data))
 		return (free_stack(&data), 0);

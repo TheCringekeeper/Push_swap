@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils.c                                        :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 11:33:34 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 17:06:26 by ankhabar         ###   ########.fr       */
+/*   Created: 2023/01/30 14:16:25 by ankhabar          #+#    #+#             */
+/*   Updated: 2023/01/30 14:16:29 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,46 @@ int	ft_max(t_data *data)
 	return (max);
 }
 
+int	max_index(t_data *data)
+{
+	int	max;
+	int	index;
+	int	i;
+
+	i = 0;
+	index = 0;
+	max = data->stack[i];
+	while (++i < data->stack_size)
+	{
+		if (max < data->stack[i])
+		{
+			max = data->stack[i];
+			index = i - data->index_a;
+		}
+	}
+	return (index);
+}
+
+int	min_index(t_data *data)
+{
+	int	min;
+	int	index;
+	int	i;
+
+	i = 0;
+	index = 0;
+	min = data->stack[i];
+	while (++i < data->stack_size)
+	{
+		if (min > data->stack[i])
+		{
+			min = data->stack[i];
+			index = i - data->index_a;
+		}
+	}
+	return (index);
+}
+
 int	max_index_in_a(t_data *data)
 {
 	int	max;
@@ -41,6 +81,26 @@ int	max_index_in_a(t_data *data)
 		if (max < data->stack[i])
 		{
 			max = data->stack[i];
+			index = i - data->index_a;
+		}
+	}
+	return (index);
+}
+
+int	min_index_in_a(t_data *data)
+{
+	int	min;
+	int	index;
+	int	i;
+
+	i = data->index_a;
+	index = 0;
+	min = data->stack[i];
+	while (++i < data->stack_size)
+	{
+		if (min > data->stack[i])
+		{
+			min = data->stack[i];
 			index = i - data->index_a;
 		}
 	}
