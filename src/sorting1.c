@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 20:26:16 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/30 13:34:39 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/30 14:24:05 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 void	sorting_3(t_data *data)
 {
+	int	a;
+	int	b;
 	int	max;
 
+	a = data->index_a;
+	b = a + 1;
 	max = max_index_in_a(data);
 	if (max == 0)
 		ft_ra(data);
 	else if (max == 1)
 		ft_rra(data);
-	if (data->stack[data->index_a] > data->stack[data->index_a + 1])
+	if (data->stack[a] > data->stack[b])
 		ft_sa(data);
 }
 

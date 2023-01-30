@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/30 12:50:14 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:20:31 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,35 +53,42 @@ static void	choosing_approach(t_data *data)
 		sorting_4(data);
 	else if (data->stack_size == 5)
 		sorting_5(data);
-	// else
-	// 	sorting_everything(data);
+	else
+		sorting_everything(data);
 }
 
 int	main(int argc, char *argv[])
 {
 	t_data	data;
 	char	*tmp;
+	int		ref;
 
-	if (argc < 2)
-		return (1);
-	if (argc == 2)
+	ref = 0;
+	if (argc > 1)
 	{
-		tmp = ft_strjoin("./push_swap ", argv[1]);
-		argv = ft_split(tmp, ' ');
-		argc = 0;
-		while (argv && argv[argc])
-			argc++;
+		if (argc == 2)
+		{
+			tmp = ft_strjoin("./push_swap ", argv[1]);
+			argv = ft_split(tmp, ' ');
+			free(tmp);
+			ref = 1;
+			argc = 0;
+			while (argv && argv[argc])
+				argc++;
+		}
+		data.stack_size = argc - 1;
+		if (parsing_error(argv))
+			error();
+		data.stack = get_stack(data.stack_size, argv);
+		if (!data.stack)
+			error();
+		data.index_a = 0;
+		if (is_sorted(&data))
+			return (free_stack(&data), 0);
+		choosing_approach(&data);
+		if (ref)
+			free_argv(argv);
+		free_stack(&data);
 	}
-	data.stack_size = argc - 1;
-	if (parsing_error(argv))
-		error();
-	data.stack = get_stack(data.stack_size, argv);
-	if (!data.stack)
-		error();
-	data.index_a = 0;
-	if (is_sorted(&data))
-		return (free_stack(&data), 0);
-	choosing_approach(&data);
-	free_stack(&data);
 	return (0);
 }
