@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:27:54 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/30 20:08:40 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 12:41:56 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_data
 }		t_data;
 
 /* main */
-int		is_sorted(t_data *data);
 int		*get_stack(int stack_size, char *argv[]);
 
 /* parsing */
@@ -45,6 +44,7 @@ void	sorting_5(t_data *data);
 void	sorting_everything(t_data *data);
 
 /* stack_utils */
+int		is_sorted(t_data *data);
 int		ft_max(t_data *data);
 int		max_index_in_a(t_data *data);
 int		min_index_in_a(t_data *data);

@@ -6,11 +6,26 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:16:25 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/30 19:35:01 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 12:41:46 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+/* if the stack is already sorted, returns (1) */
+int	is_sorted(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->stack_size - 1)
+	{
+		if (data->stack[i] > data->stack[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_max(t_data *data)
 {

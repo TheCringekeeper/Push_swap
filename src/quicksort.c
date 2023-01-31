@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:01:41 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/30 15:03:31 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 12:44:06 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int	ft_partition(int *array, int _l_pos, int _r_pos)
 	return (i);
 }
 
+/* classic quicksort program */
 void	ft_quicksort(int *array, int l_pos, int r_pos)
 {
 	int	pi;

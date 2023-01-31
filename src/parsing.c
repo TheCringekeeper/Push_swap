@@ -6,17 +6,25 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:45:53 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/28 15:40:16 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 12:35:50 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
+/* tests for:
+	nb > INT_MAX  ; (invalid)
+	nb < INT_MIN  ; (invalid)
+	nb == - / +   ; (invalid)
+	nb == +0 / -0 ; (valid)
+	nb == 00000nb ; (valid)*/
 static int	is_invalid(char *str)
 {
 	char	*itoa_test;
 	int		nb;
+	int		i;
 
+	i = 0;
 	nb = ft_atoi(str);
 	if ((!ft_strcmp(str, "-0") || !ft_strcmp(str, "+0")) && nb == 0)
 		return (0);
@@ -30,6 +38,8 @@ static int	is_invalid(char *str)
 	}
 	itoa_test = ft_itoa(nb);
 	if (str[0] == '+')
+		str++;
+	while (str[i] == '0')
 		str++;
 	if (ft_strcmp(itoa_test, str) != 0)
 		return (free(itoa_test), 1);

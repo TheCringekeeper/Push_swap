@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:04:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/30 20:05:41 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:31:09 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	*get_tmp_stack(t_data *data, int size)
 	while (i < size)
 	{
 		stack[i] = data->stack[data->index_a + i];
-		printf("%i ", stack[i]);
+		ft_printf("%i ", stack[i]);
 		i++;
 	}
 	if (has_doubles(stack, size))
@@ -41,9 +41,9 @@ static int	find_median(t_data *data)
 	size = (data->stack_size - data->index_a);
 	test_stack = get_tmp_stack(data, size);
 	ft_quicksort(test_stack, 0, size - 1);
-	median = test_stack[size / 2];
+	median = test_stack[(size - 1) / 2];
 	free(test_stack);
-	printf("median: %i\n", median);
+	ft_printf("median: %i\n", median);
 	return (median);
 }
 
@@ -72,6 +72,31 @@ static int	part1_median(t_data *data)
 	return (1);
 }
 
+// int	count_moves(t_data *data, int i)
+// {
+// 	find_place_in_a();
+// 	count_ops();
+// }
+
+// void	part2_sorting(t_data *data)
+// {
+// 	int	min_moves;
+// 	int	cur_moves;
+// 	int	i;
+
+// 	i = 0;
+// 	while (data->index_a - i > 0)
+// 	{
+// 		cur_moves = count_moves(data, i);
+// 		if (i == 0)
+// 			min_moves = count_moves(data, i);
+// 		if (min_moves > cur_moves)
+// 			min_moves = cur_moves;
+// 		i++;
+// 	}
+// 	execute(data, min_moves);
+// }
+
 /* dobavit part2 sorting from b to a
 *  dobavit move cost i sravnivat s kajdim novim
 *  while(1)
@@ -83,10 +108,16 @@ void	sorting_everything(t_data *data)
 {
 	if (!part1_median(data))
 		error();
-	int i = 0;
+	if (is_sorted(data))
+	{
+		while (data->index_a > 0)
+			ft_pa(data);
+	}
+	// part2_sorting(data);
+	int	i = 0;
 	while (i < data->stack_size)
 	{
-		printf("%i ", data->stack[i]);
+		ft_printf("%i ", data->stack[i]);
 		i++;
 	}
 }

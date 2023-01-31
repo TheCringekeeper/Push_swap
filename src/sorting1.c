@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 20:26:16 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/30 14:24:05 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:27:29 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	sorting_3(t_data *data)
 	int	b;
 	int	max;
 
+	if (data->stack_size - data->index_a != 3)
+		ft_printf("problem in sorting 3\n");
 	a = data->index_a;
 	b = a + 1;
 	max = max_index_in_a(data);

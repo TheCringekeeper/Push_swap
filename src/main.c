@@ -6,26 +6,13 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/30 20:20:31 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 12:41:32 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	is_sorted(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < data->stack_size - 1)
-	{
-		if (data->stack[i] > data->stack[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
+/* initializing and filling int	*stack */
 int	*get_stack(int stack_size, char *argv[])
 {
 	int	*stack;
@@ -66,7 +53,7 @@ int	main(int argc, char *argv[])
 	ref = 0;
 	if (argc > 1)
 	{
-		if (argc == 2)
+		if (argc == 2 && argv[1][0])
 		{
 			tmp = ft_strjoin("./push_swap ", argv[1]);
 			argv = ft_split(tmp, ' ');
