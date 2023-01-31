@@ -6,11 +6,18 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:16:25 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/31 12:41:46 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 21:22:57 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int	get_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
 
 /* if the stack is already sorted, returns (1) */
 int	is_sorted(t_data *data)
@@ -27,41 +34,7 @@ int	is_sorted(t_data *data)
 	return (1);
 }
 
-int	ft_max(t_data *data)
-{
-	int	max;
-	int	i;
-
-	i = 0;
-	max = data->stack[i];
-	while (++i < data->stack_size)
-	{
-		if (max < data->stack[i])
-			max = data->stack[i];
-	}
-	return (max);
-}
-
-int	max_index_in_a(t_data *data)
-{
-	int	max;
-	int	index;
-	int	i;
-
-	i = data->index_a;
-	index = 0;
-	max = data->stack[i];
-	while (++i < data->stack_size)
-	{
-		if (max < data->stack[i])
-		{
-			max = data->stack[i];
-			index = i - data->index_a;
-		}
-	}
-	return (index);
-}
-
+/* searches for min index value in the stack_a */
 int	min_index_in_a(t_data *data)
 {
 	int	min;

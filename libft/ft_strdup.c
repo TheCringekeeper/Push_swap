@@ -6,13 +6,10 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:48:10 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/23 13:30:39 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:02:40 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(char *src)

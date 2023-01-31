@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 20:04:27 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/29 14:33:50 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/01/31 20:03:25 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+int		ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_atoi(const char *nptr);
