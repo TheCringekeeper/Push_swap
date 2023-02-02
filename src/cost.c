@@ -5,56 +5,63 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 15:27:56 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/31 20:17:39 by ankhabar         ###   ########.fr       */
+/*   Created: 2023/02/01 14:16:17 by ankhabar          #+#    #+#             */
+/*   Updated: 2023/02/01 16:24:01 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	ft_find_most_optimal(int cost_ra, int cost_rb, int cost_rra, int cost_rrb)
+int	get_best_move(int ra, int rb, int rra, int rrb)
 {
-	int	cost_ra_rb;
-	int	cost_ra_rrb;
-	int	cost_rra_rb;
-	int	cost_rra_rrb;
+	int	rr;
+	int	ra_rrb;
+	int	rra_rb;
+	int	rrr;
 
-	cost_ra_rb = get_max(cost_ra, cost_rb);
-	cost_ra_rrb = cost_ra + cost_rrb;
-	cost_rra_rb = cost_rra + cost_rb;
-	cost_rra_rrb = get_max(cost_rra, cost_rrb);
-	if (cost_ra_rb <= cost_ra_rrb && cost_ra_rb <= cost_rra_rb \
-		&& cost_ra_rb <= cost_rra_rrb)
-		return (1);
-	else if (cost_ra_rrb <= cost_ra_rb && cost_ra_rrb <= cost_rra_rb \
-			&& cost_ra_rrb <= cost_rra_rrb)
-		return (2);
-	else if (cost_rra_rb <= cost_ra_rb && cost_rra_rb <= cost_ra_rrb \
-			&& cost_rra_rb <= cost_rra_rrb)
-		return (3);
+	if (ra > rb)
+		rr = ra;
 	else
-		return (4);
+		rr = rb;
+	ra_rrb = ra + rrb;
+	rra_rb = rra + rb;
+	if (rra > rrb)
+		rrr = rra;
+	else
+		rrr = rrb;
+	if (rr <= ra_rrb && rr <= rra_rb && rr <= rrr)
+		return (1);
+	else if (ra_rrb <= rr && ra_rrb <= rra_rb && ra_rrb <= rrr)
+		return (2);
+	else if (rra_rb <= rr && rra_rb <= ra_rrb && rra_rb <= rrr)
+		return (3);
+	return (4);
 }
 
 int	find_cost(t_data *data, int i)
 {
 	int	cost_ra;
-	int	cost_rb;
 	int	cost_rra;
+	int	cost_rb;
 	int	cost_rrb;
-	int	the_most_opt;
+	int	best;
 
-	cost_ra = ft_cost_ra(data, data->stack[data->index_a - i - 1]);
-	cost_rra = ft_cost_rra(data, data->stack[data->index_a - i - 1]);
-	cost_rb = ft_cost_rb(data, data->stack[data->index_a - i - 1]);
-	cost_rrb = ft_cost_rrb(data, data->stack[data->index_a - i - 1]);
-	the_most_opt = ft_find_most_optimal(cost_ra, cost_rb, cost_rra, cost_rrb);
-	if (the_most_opt == 1)
-		return (get_max(cost_ra, cost_rb));
-	else if (the_most_opt == 2)
+	cost_ra = get_cost_ra(data, data->stack[i]);
+	cost_rra = get_cost_rra(data, data->stack[i]);
+	cost_rb = get_cost_rb(data, data->stack[i]);
+	cost_rrb = get_cost_rrb(data, data->stack[i]);
+	best = get_best_move(cost_ra, cost_rb, cost_rra, cost_rrb);
+	if (best == 1)
+	{
+		if (cost_ra > cost_rb)
+			return (cost_ra);
+		return (cost_rb);
+	}
+	else if (best == 2)
 		return (cost_ra + cost_rrb);
-	else if (the_most_opt == 3)
+	else if (best == 3)
 		return (cost_rra + cost_rb);
-	else
-		return (get_max(cost_rra, cost_rrb));
+	if (cost_rra > cost_rrb)
+		return (cost_rra);
+	return (cost_rrb);
 }

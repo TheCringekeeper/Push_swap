@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/01 16:57:16 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:19:40 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/checker_bonus.h"
 
 /* initializing and filling int	*stack */
 int	*get_stack(int stack_size, char *argv[])
@@ -32,19 +32,7 @@ int	*get_stack(int stack_size, char *argv[])
 	return (stack);
 }
 
-static void	choosing_approach(t_data *data)
-{
-	if (data->stack_size > 1 && data->stack_size < 4)
-		sorting_smol(data);
-	else if (data->stack_size == 4)
-		sorting_4(data);
-	else if (data->stack_size == 5)
-		sorting_5(data);
-	else
-		sorting_everything(data);
-}
-
-static int	data_init_error(t_data *data, int argc, char *argv[], int ref)
+int	data_init_error(t_data *data, int argc, char *argv[], int ref)
 {
 	data->stack_size = argc - 1;
 	if (parsing_error(argv))
@@ -59,36 +47,6 @@ static int	data_init_error(t_data *data, int argc, char *argv[], int ref)
 			free_argv(argv);
 		free_stack(data);
 		return (1);
-	}
-	return (0);
-}
-
-/* ya ne znayu kak eto ispravit >:( */
-int	main(int argc, char *argv[])
-{
-	t_data	data;
-	char	*tmp;
-	int		ref;
-
-	ref = 0;
-	if (argc > 1)
-	{
-		if (argc == 2 && argv[1][0] && ft_strcmp(argv[1], "-2147483648"))
-		{
-			tmp = ft_strjoin("./push_swap ", argv[1]);
-			argv = ft_split(tmp, ' ');
-			free(tmp);
-			ref = 1;
-			argc = 0;
-			while (argv && argv[argc])
-				argc++;
-		}
-		if (data_init_error(&data, argc, argv, ref))
-			return (1);
-		choosing_approach(&data);
-		if (ref)
-			free_argv(argv);
-		free_stack(&data);
 	}
 	return (0);
 }

@@ -6,68 +6,33 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:04:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/31 19:37:51 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/01 16:48:42 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	*get_tmp_stack(t_data *data, int size)
+static void	final_rotations(t_data *data)
 {
-	int	*stack;
-	int	i;
+	int	min;
 
-	i = 0;
-	stack = malloc(sizeof(int) * size);
-	if (!stack)
-		return (NULL);
-	while (i < size)
+	min = min_index_in_a(data);
+	if (min < (data->stack_size / 2))
 	{
-		stack[i] = data->stack[data->index_a + i];
-		i++;
-	}
-	if (has_doubles(stack, size))
-		return (NULL);
-	return (stack);
-}
-
-static int	find_median(t_data *data)
-{
-	int	*test_stack;
-	int	median;
-	int	size;
-
-	size = (data->stack_size - data->index_a);
-	test_stack = get_tmp_stack(data, size);
-	ft_quicksort(test_stack, 0, size - 1);
-	median = test_stack[(size - 1) / 2];
-	free(test_stack);
-	return (median);
-}
-
-static int	part1_median(t_data *data)
-{
-	int	median;
-	int	i;
-
-	median = 0;
-	while ((data->stack_size - data->index_a) > 3)
-	{
-		median = find_median(data);
-		i = 0;
-		while (i < (data->stack_size - data->index_a))
+		while (min > 0)
 		{
-			if (data->stack[data->index_a] < median)
-				ft_pb(data);
-			else
-			{
-				i++;
-				ft_ra(data);
-			}
+			ft_ra(data);
+			min--;
 		}
 	}
-	sorting_3(data);
-	return (1);
+	else
+	{
+		while (min < data->stack_size)
+		{
+			ft_rra(data);
+			min++;
+		}
+	}
 }
 
 int	sorting_back(t_data *data)
@@ -99,13 +64,13 @@ int	sorting_back(t_data *data)
 
 void	sorting_everything(t_data *data)
 {
-	if (!part1_median(data))
-		error();
+	if (!median_sorting(data))
+		error(NULL, 0);
 	if (is_sorted(data))
 	{
 		while (data->index_a > 0)
 			ft_pa(data);
 	}
 	if (!sorting_back(data))
-		error();
+		error(NULL, 0);
 }

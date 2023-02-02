@@ -5,81 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/31 15:50:26 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/01/31 19:37:24 by ankhabar         ###   ########.fr       */
+/*   Created: 2023/02/01 14:45:09 by ankhabar          #+#    #+#             */
+/*   Updated: 2023/02/01 15:24:06 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_operation_ra_rb(t_data *data, int cost_ra, int cost_rb)
+void	do_rr(t_data *data, int ra, int rb)
 {
-	while (cost_ra != 0 && cost_rb != 0)
+	while (ra && rb)
 	{
 		ft_rr(data);
-		cost_ra--;
-		cost_rb--;
+		ra--;
+		rb--;
 	}
-	while (cost_ra != 0)
+	while (ra)
 	{
 		ft_ra(data);
-		cost_ra--;
+		ra--;
 	}
-	while (cost_rb != 0)
+	while (rb)
 	{
 		ft_rb(data);
-		cost_rb--;
+		rb--;
 	}
 	ft_pa(data);
 }
 
-void	ft_operation_ra_rrb(t_data *data, int cost_ra, int cost_rrb)
+void	do_ra_rrb(t_data *data, int ra, int rrb)
 {
-	while (cost_ra != 0)
+	while (ra)
 	{
 		ft_ra(data);
-		cost_ra--;
+		ra--;
 	}
-	while (cost_rrb != 0)
+	while (rrb)
 	{
 		ft_rrb(data);
-		cost_rrb--;
+		rrb--;
 	}
 	ft_pa(data);
 }
 
-void	ft_operation_rra_rb(t_data *data, int cost_rra, int cost_rb)
+void	do_rra_rb(t_data *data, int rra, int rb)
 {
-	while (cost_rra != 0)
+	while (rra)
 	{
 		ft_rra(data);
-		cost_rra--;
+		rra--;
 	}
-	while (cost_rb != 0)
+	while (rb)
 	{
 		ft_rb(data);
-		cost_rb--;
+		rb--;
 	}
 	ft_pa(data);
 }
 
-void	ft_operation_rra_rrb(t_data *data, int cost_rra, int cost_rrb)
+void	do_rrr(t_data *data, int rra, int rrb)
 {
-	while (cost_rra != 0 && cost_rrb != 0)
+	while (rra && rrb)
 	{
 		ft_rrr(data);
-		cost_rra--;
-		cost_rrb--;
+		rra--;
+		rrb--;
 	}
-	while (cost_rra != 0)
+	while (rra)
 	{
 		ft_rra(data);
-		cost_rra--;
+		rra--;
 	}
-	while (cost_rrb != 0)
+	while (rrb)
 	{
 		ft_rrb(data);
-		cost_rrb--;
+		rrb--;
 	}
 	ft_pa(data);
 }
@@ -87,22 +87,22 @@ void	ft_operation_rra_rrb(t_data *data, int cost_rra, int cost_rrb)
 void	do_ops(t_data *data, int i)
 {
 	int	cost_ra;
-	int	cost_rb;
 	int	cost_rra;
+	int	cost_rb;
 	int	cost_rrb;
-	int	the_most_opt;
+	int	best;
 
-	cost_ra = ft_cost_ra(data, data->stack[data->index_a - i - 1]);
-	cost_rra = ft_cost_rra(data, data->stack[data->index_a - i - 1]);
-	cost_rb = ft_cost_rb(data, data->stack[data->index_a - i - 1]);
-	cost_rrb = ft_cost_rrb(data, data->stack[data->index_a - i - 1]);
-	the_most_opt = ft_find_most_optimal(cost_ra, cost_rb, cost_rra, cost_rrb);
-	if (the_most_opt == 1)
-		ft_operation_ra_rb(data, cost_ra, cost_rb);
-	else if (the_most_opt == 2)
-		ft_operation_ra_rrb(data, cost_ra, cost_rrb);
-	else if (the_most_opt == 3)
-		ft_operation_rra_rb(data, cost_rra, cost_rb);
+	cost_ra = get_cost_ra(data, data->stack[i]);
+	cost_rra = get_cost_rra(data, data->stack[i]);
+	cost_rb = get_cost_rb(data, data->stack[i]);
+	cost_rrb = get_cost_rrb(data, data->stack[i]);
+	best = get_best_move(cost_ra, cost_rb, cost_rra, cost_rrb);
+	if (best == 1)
+		do_rr(data, cost_ra, cost_rb);
+	else if (best == 2)
+		do_ra_rrb(data, cost_ra, cost_rrb);
+	else if (best == 3)
+		do_rra_rb(data, cost_rra, cost_rb);
 	else
-		ft_operation_rra_rrb(data, cost_rra, cost_rrb);
+		do_rrr(data, cost_rra, cost_rrb);
 }
