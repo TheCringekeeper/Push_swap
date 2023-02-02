@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:45:53 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/02 15:31:45 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:58:20 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	is_invalid(char *str)
 	itoa_test = ft_itoa(nb);
 	if (str[0] == '+')
 		str++;
-	while (str[++i] == '0')
+	while (str[i] == '0')
 		str++;
 	if (ft_strcmp(itoa_test, str) != 0)
 		return (free(itoa_test), 1);

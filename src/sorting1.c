@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 20:26:16 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/01 12:24:52 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:51:38 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	sorting_smol(t_data *data)
 void	sorting_4(t_data *data)
 {
 	int	min;
-	int	i;
 
 	min = min_index_in_a(data);
 	if (min == 1)
@@ -70,14 +69,6 @@ void	sorting_4(t_data *data)
 	ft_pb(data);
 	sorting_3(data);
 	ft_pa(data);
-	i = 0;
-	min = data->stack[0];
-	while (data->stack[i])
-	{
-		if (min < data->stack[i++])
-			return ;
-	}
-	ft_ra(data);
 }
 
 static void	ultimate_5_sorting(t_data *data)

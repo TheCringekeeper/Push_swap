@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:27:54 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/01 18:08:22 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:39:08 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	sorting_4(t_data *data);
 void	sorting_5(t_data *data);
 
 /* sorting2 */
-void	sorting_everything(t_data *data);
+void	sorting_everything(t_data *data, char *argv[], int ref);
 
 /* median */
 int		median_sorting(t_data *data);

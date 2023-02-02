@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/02 13:19:40 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:47:39 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	data_init_error(t_data *data, int argc, char *argv[], int ref)
 		if (ref)
 			free_argv(argv);
 		free_stack(data);
+		ft_printf("OK\n");
 		return (1);
 	}
 	return (0);

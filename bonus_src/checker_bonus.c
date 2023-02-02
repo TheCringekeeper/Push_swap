@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:03:38 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/02 13:16:43 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:56:48 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ static int	read_loop(t_data *data)
 
 	buff = "";
 	buff = get_next_line(0);
-	if (!buff)
-		ft_printf("bruh y tho\n");
 	while (buff)
 	{
 		if (!ft_strcmp(buff, "sa\n"))
