@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 18:04:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/01 16:48:42 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:37:11 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,21 @@ int	sorting_back(t_data *data)
 	return (1);
 }
 
-void	sorting_everything(t_data *data)
+void	sorting_everything(t_data *data, char *argv[], int ref)
 {
 	if (!median_sorting(data))
-		error(NULL, 0);
+	{
+		free_stack(data);
+		error(argv, ref);
+	}
 	if (is_sorted(data))
 	{
 		while (data->index_a > 0)
 			ft_pa(data);
 	}
 	if (!sorting_back(data))
-		error(NULL, 0);
+	{
+		free_stack(data);
+		error(argv, ref);
+	}
 }

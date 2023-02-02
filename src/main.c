@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/02 13:52:25 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:36:44 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	*get_stack(int stack_size, char *argv[])
 	return (stack);
 }
 
-static void	choosing_approach(t_data *data)
+static void	choosing_approach(t_data *data, char *argv[], int ref)
 {
 	if (data->stack_size > 1 && data->stack_size < 4)
 		sorting_smol(data);
@@ -41,7 +41,7 @@ static void	choosing_approach(t_data *data)
 	else if (data->stack_size == 5)
 		sorting_5(data);
 	else
-		sorting_everything(data);
+		sorting_everything(data, argv, ref);
 }
 
 static int	data_init_error(t_data *data, int argc, char *argv[], int ref)
@@ -85,7 +85,7 @@ int	main(int argc, char *argv[])
 		}
 		if (data_init_error(&data, argc, argv, ref))
 			return (1);
-		choosing_approach(&data);
+		choosing_approach(&data, argv, ref);
 		if (ref)
 			free_argv(argv);
 		free_stack(&data);
