@@ -6,31 +6,48 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 11:45:53 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/02 13:49:13 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:05:14 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/checker_bonus.h"
+
+static void	checks(char **str, char **flag)
+{
+	if (*str[0] == '+')
+		(*str)++;
+	if (*str[0] == '-')
+	{
+		(*str)++;
+		*flag = "-";
+	}
+	while (*str[0] == '0' && ft_strcmp(*str + 1, ""))
+		(*str)++;
+	if (*str[0] == '0' && !ft_strcmp(*str + 1, ""))
+		*flag = "";
+}
 
 /* tests for:
 	nb > INT_MAX  ; (invalid)
 	nb < INT_MIN  ; (invalid)
 	nb == - / +   ; (invalid)
 	nb == +0 / -0 ; (valid)
-	nb == 00000nb ; (valid)*/
+	nb == 00000nb ; (valid)
+	nb == +0000nb ; (valid)
+/!\ nb == -0000nb ; (valid)
+/!\ nb == -000000 ; (valid)*/
 static int	is_invalid(char *str)
 {
 	char	*itoa_test;
+	char	*flag;
+	char	*test;
 	int		nb;
-	int		i;
 
-	i = 0;
+	flag = "";
 	nb = ft_atoi(str);
 	if ((!ft_strcmp(str, "-0") || !ft_strcmp(str, "+0")
 			|| !ft_strcmp(str, "0")) && nb == 0)
 		return (0);
-	if (nb == 0 && ft_strcmp(str, "0"))
-		return (1);
 	if (nb == -2147483648)
 	{
 		if (ft_strcmp(str, "-2147483648"))
@@ -38,13 +55,11 @@ static int	is_invalid(char *str)
 		return (0);
 	}
 	itoa_test = ft_itoa(nb);
-	if (str[0] == '+')
-		str++;
-	while (str[i] == '0')
-		str++;
-	if (ft_strcmp(itoa_test, str) != 0)
-		return (free(itoa_test), 1);
-	return (free(itoa_test), 0);
+	checks(&str, &flag);
+	test = ft_strjoin(flag, str);
+	if (ft_strcmp(itoa_test, test) != 0)
+		return (free(test), free(itoa_test), 1);
+	return (free(test), free(itoa_test), 0);
 }
 
 int	parsing_error(char *argv[])

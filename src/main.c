@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 18:10:45 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/02 15:36:44 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/02/02 20:00:28 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ static int	data_init_error(t_data *data, int argc, char *argv[], int ref)
 	return (0);
 }
 
-/* ya ne znayu kak eto ispravit >:( */
 int	main(int argc, char *argv[])
 {
 	t_data	data;
