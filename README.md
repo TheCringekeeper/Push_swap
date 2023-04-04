@@ -38,7 +38,7 @@ You can visualize this push_swap algorithm in action with [o-reo's push_swap vis
 ![Push_swap visualization by mcombeau](https://github.com/mcombeau/push_swap/blob/main/subject/push_swap_visualization.gif)
 
 # Rules
-
+```
 • This project is to be coded in C, following the 42 Norm. Any leak, crash, undefined behavior or norm error means 0 to the project.
 
 • The program is only allowed two stacks to work with, stack A and stack B. All the numbers are initially added to stack A, and B is empty.
@@ -68,7 +68,7 @@ You can visualize this push_swap algorithm in action with [o-reo's push_swap vis
 ◦ rrr : rra and rrb at the same time.
 
 • The grade depends on how efficient the program's sorting process is.
-```
+
 • Sorting 3 values: no more than 3 actions.
 
 • Sorting 5 values: no more than 12 actions.
@@ -85,6 +85,7 @@ You can visualize this push_swap algorithm in action with [o-reo's push_swap vis
   ◦ 4 points for less than 7000
   ◦ 3 points for less than 8500
   ◦ 2 points for less than 10000
-  ◦ 1 point for less than 11500 
+  ◦ 1 point for less than 11500
+
 • Validating the project requires at least 80/100.
 ```
