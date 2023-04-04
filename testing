@@ -4,19 +4,24 @@ GREEN="\e[32m";
 ENDCOLOR="\e[0m";
 KO="KO";
 
-if [ -z $1 ]
-then
-	echo "Enter the number of elements"
+if [ -z $1 ]; then
+	echo "Enter the number of values to sort"
 	exit
 fi
-if [ -z $2 ]
-then
-	echo "Enter the limit of actions"
+if [ -z $2 ]; then
+	echo "Enter the max number of actions"
 	exit
 else
 	max_steps=$2;
 fi
-make
+if ! [[ $1 =~ ^[0-9]+$ ]]; then
+	echo "Error: first argument is not a number"
+	exit
+fi
+if ! [[ $2 =~ ^[0-9]+$ ]]; then
+	echo "Error: second argument is not a number"
+	exit
+fi
 while [ 1 ]
 do 
 	rand=`ruby -e "puts (-1000..10000).to_a.shuffle.sample($1).join(' ')"`;

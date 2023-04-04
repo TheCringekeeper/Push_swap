@@ -30,11 +30,9 @@ $(NAME)	: $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
 
 clean	:
 		$(RM) $(RMFLAG) $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS) objs/
-		@echo "\033[1;36m======= libft object files have been removed =======\033[0m"
 
 fclean	:
 		$(RM) $(RMFLAG) $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS) objs/
-		@echo "\033[1;36m======= libft object files have been removed =======\033[0m"
 		$(RM) $(RMFLAG) $(NAME)
 
 re		: fclean all

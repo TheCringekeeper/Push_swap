@@ -30,12 +30,10 @@ $(NAME)		: $(OBJ) Makefile
 clean		:
 			@$(SMAKE) -C libft/ clean
 			@$(RM) $(RMFLAG) $(OBJ) $(BOBJ)
-			@echo "\033[1;36m======= push_swap object files have been removed =======\033[0m"
 
 fclean		:
 			@$(SMAKE) -C libft/ fclean
 			@$(RM) $(RMFLAG) $(OBJ) $(BOBJ)
-			@echo "\033[1;36m======= push_swap object files have been removed =======\033[0m"
 			@$(RM) $(RMFLAG) $(NAME) $(BONUS_NAME)
 			@echo "\033[1;36m======= push_swap has been removed =======\033[0m"
 
