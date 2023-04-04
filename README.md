@@ -38,7 +38,7 @@ You can visualize this push_swap algorithm in action with [o-reo's push_swap vis
 ![Push_swap visualization by mcombeau](https://github.com/mcombeau/push_swap/blob/main/subject/push_swap_visualization.gif)
 
 # Rules
-```
+
 • This project is to be coded in C, following the 42 Norm.
 Any leak, crash, undefined behavior or norm error means 0 to the project.
 
@@ -79,4 +79,4 @@ All the numbers are initially added to stack A, and B is empty.
   ◦ 1 point for less than 11500
 
 • Validating the project requires at least 80/100.
-```
+
