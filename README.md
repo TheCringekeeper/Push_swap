@@ -74,6 +74,7 @@ You can visualize this push_swap algorithm in action with [o-reo's push_swap vis
 • Sorting 5 values: no more than 12 actions.
 
 • Sorting 100 values: rating from 1 to 5 points depending on the number of actions:
+
 5 points for less than 700 actions
 4 points for less than 900
 3 points for less than 1100
