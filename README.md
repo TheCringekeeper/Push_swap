@@ -33,7 +33,7 @@ To quickly test the program you can also run:
 ./script_bash number_of_values_to_sort max_number_of_actions
 ```
 
-You can visualize this push_swap algorithm in action with [o-reo's push_swap visualizer](https://github.com/o-reo/push_swap_visualizer):
+You can visualize this push_swap algorithm in action with [o-reo's push_swap visualizer](https://github.com/o-reo/push_swap_visualizer)
 
 ![Push_swap visualization by mcombeau](https://github.com/mcombeau/push_swap/blob/main/subject/push_swap_visualization.gif)
 
