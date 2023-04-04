@@ -6,7 +6,7 @@
 /*   By: ankhabar <ankhabar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:03:38 by ankhabar          #+#    #+#             */
-/*   Updated: 2023/02/02 16:56:48 by ankhabar         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:11:36 by ankhabar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static int	read_loop(t_data *data)
 	return (free(buff), 1);
 }
 
-static void	cringe_no_more_motivation(t_data *data, char *argv[], int ref)
+static void	sorted_check(t_data *data, char *argv[], int ref)
 {
 	if (!read_loop(data))
 	{
@@ -96,7 +96,7 @@ int	main(int argc, char *argv[])
 		}
 		if (data_init_error(&data, argc, argv, ref))
 			return (1);
-		cringe_no_more_motivation(&data, argv, ref);
+		sorted_check(&data, argv, ref);
 		if (ref)
 			free_argv(argv);
 		free_stack(&data);
