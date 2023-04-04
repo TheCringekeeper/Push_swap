@@ -82,13 +82,9 @@ You can visualize this push_swap algorithm in action with [o-reo's push_swap vis
 
 • Sorting 500 values: rating from 1 to 5 points depending on the number of actions:
   ◦ 5 points for less than 5500 actions
-
   ◦ 4 points for less than 7000
-
   ◦ 3 points for less than 8500
-
   ◦ 2 points for less than 10000
-
   ◦ 1 point for less than 11500 
 ```
 • Validating the project requires at least 80/100.
