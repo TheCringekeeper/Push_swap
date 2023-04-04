@@ -86,6 +86,5 @@ You can visualize this push_swap algorithm in action with [o-reo's push_swap vis
   ◦ 3 points for less than 8500
   ◦ 2 points for less than 10000
   ◦ 1 point for less than 11500 
-```
 • Validating the project requires at least 80/100.
-
+```
