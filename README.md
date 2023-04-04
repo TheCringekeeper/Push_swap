@@ -30,7 +30,7 @@ ARG="3 0 9 2 -1"; ./push_swap $ARG | ./checker $ARG
 To quickly test the program you can also run:
 
 ```shell
-./script_bash number_of_values_to_sort max_number_of_actions
+./testing number_of_values_to_sort max_number_of_actions
 ```
 
 You can visualize this push_swap algorithm in action with [o-reo's push_swap visualizer](https://github.com/o-reo/push_swap_visualizer)
