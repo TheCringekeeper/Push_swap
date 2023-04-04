@@ -39,9 +39,11 @@ You can visualize this push_swap algorithm in action with [o-reo's push_swap vis
 
 # Rules
 ```
-• This project is to be coded in C, following the 42 Norm. Any leak, crash, undefined behavior or norm error means 0 to the project.
+• This project is to be coded in C, following the 42 Norm.
+Any leak, crash, undefined behavior or norm error means 0 to the project.
 
-• The program is only allowed two stacks to work with, stack A and stack B. All the numbers are initially added to stack A, and B is empty.
+• The program is only allowed two stacks to work with, stack A and stack B.
+All the numbers are initially added to stack A, and B is empty.
 
 • The possible actions are:
 ◦ pa (push A): Take the first element at the top of B and put it at the top of A. Do nothing if B is empty.
